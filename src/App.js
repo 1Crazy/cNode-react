@@ -1,9 +1,10 @@
 import React from 'react';
+import RouterIndex from  './router/index'
 
 function App() {
   return (
-    <h1>222</h1>
-  );
+    <RouterIndex />
+  )
 }
 
 export default App;
