@@ -1,5 +1,7 @@
 .pageWrap{
   min-height:100vh;
+  display: flex;
+  flex-direction: column;
 }
 #logo{
   color: white;
@@ -31,4 +33,13 @@
 
 #nav .ant-menu-item-active a{
   color: #1890ff;
+}
+.xsNav{
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+.main{
+  flex: 1;
 }

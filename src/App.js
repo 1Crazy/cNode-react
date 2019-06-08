@@ -9,6 +9,7 @@ function App() {
   return (
     <div className='pageWrap'>
       <MainHeader />
+      <main className='main' />
       <MainFooter />
     </div>
   )
