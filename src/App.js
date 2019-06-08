@@ -1,9 +1,16 @@
 import React from 'react';
 import RouterIndex from  './router/index'
+import MainHeader from './view/mainHeader'
+import MainFooter from './view/mainFooter'
+
+import './view/index.css'
 
 function App() {
   return (
-    <RouterIndex />
+    <div className='pageWrap'>
+      <MainHeader />
+      <MainFooter />
+    </div>
   )
 }
 
