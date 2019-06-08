@@ -9,7 +9,9 @@ function App() {
   return (
     <div className='pageWrap'>
       <MainHeader />
-      <main className='main' />
+      <main className='main'>
+        <RouterIndex />
+      </main>
       <MainFooter />
     </div>
   )
