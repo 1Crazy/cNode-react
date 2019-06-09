@@ -91,3 +91,9 @@
   flex: 1;
   text-align: center;
 }
+.indexList{
+  padding: 0 10px;
+}
+.indexList p{
+  margin: 0;
+}
