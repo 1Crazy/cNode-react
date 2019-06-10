@@ -97,3 +97,20 @@
 .indexList p{
   margin: 0;
 }
+
+.wrap img{
+  max-width: 100%;
+}
+
+.ant-list-item-action{
+  margin-left: 50px;
+}
+
+.ant-list-item-meta{
+  min-width: 200px;
+  align-items: center;
+}
+
+.ant-list-item-meta{
+  align-items: center;
+}
