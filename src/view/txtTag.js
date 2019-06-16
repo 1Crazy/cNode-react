@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Tag} from 'antd'
+import { Tag } from 'antd'
 
 const tab = {
   top: {
@@ -14,7 +14,7 @@ const tab = {
     color: 'cyan',
     txt: '招聘'
   },
-  share:{
+  share: {
     color: 'purple',
     txt: '分享'
   },
@@ -30,20 +30,19 @@ const tab = {
 
 function getTab(data) {
   return (
-      data.top?
-          'top':
-          data.good?
-              'good': data.tab
-      )
+    data.top ?
+      'top' :
+      data.good ?
+        'good' : data.tab
+  )
 }
 
 export default class txtTag extends Component {
-  
+
   render() {
-    
+
     let nowTab = tab[getTab(this.props.data)]
-    console.log(nowTab);
-    
+
     return (
       <Tag color={nowTab.color}>{nowTab.txt}</Tag>
     )

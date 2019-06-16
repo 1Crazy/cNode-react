@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+ import React, { Component } from 'react'
 import {Card, Avatar} from 'antd'
 import {Link} from 'react-router-dom'
 import TxtTag from '../txtTag'

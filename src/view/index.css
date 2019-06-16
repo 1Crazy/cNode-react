@@ -114,3 +114,44 @@
 .ant-list-item-meta{
   align-items: center;
 }
+.userAvatar{
+  display: block;
+  margin: 10px auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+.userInfo{
+  text-align: center;
+  line-height: 24px;
+  padding-bottom: 10px;
+}
+.userList .ant-list-item{
+  position: relative;
+}
+..userList .ant-list-item *{
+  vertical-align: middle;
+}
+.userList{
+  line-height: 32px;
+}
+.userList .ant-menu-item-content{
+  display: block;
+}
+.userList h4{
+  margin-bottom: 0;
+  display: inline-block;
+}
+.userName{
+  margin: 0 10px 0 5px;
+}
+.userList time{
+  position: absolute;
+  right: 0;
+  top: 12px;
+}
+@media all and (max-width: 767px) {
+  .userList h4 {
+    display: block;
+  }
+}
