@@ -16,7 +16,7 @@ export default class indexMenu extends Component {
           <Link to='/index/good'>精华</Link>
         </Menu.Item>
         <Menu.Item>
-          <Link to='/index/ask'>精华</Link>
+          <Link to='/index/ask'>问答</Link>
         </Menu.Item>
         <Menu.Item>
           <Link to='/index/share'>分享</Link>
