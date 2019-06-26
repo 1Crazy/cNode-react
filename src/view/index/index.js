@@ -28,7 +28,9 @@ export default class index extends Component {
           <List
             tab={tab}
           />
+          
         </Col>
+        
       </Row>
     )
   }

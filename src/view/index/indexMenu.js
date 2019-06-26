@@ -1,33 +1,43 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom'
+import {Link,withRouter} from 'react-router-dom'
 import {Menu} from 'antd'
+import tab from '../tab'
+class IndexMenu extends Component {
 
-export default class indexMenu extends Component {
+  state = {
+    now: this.getNow(this.props.location)
+  }
+
+  getNow(location){
+    let now = location.pathname.split('/')
+    return now[2]
+  }
+
   render() {
     return (
       <Menu 
           id={this.props.id}
           mode={this.props.mode}
+          selectedKeys={[this.state.now]}
       >
-        <Menu.Item>
-          <Link to='/index/all'>全部</Link>
-        </Menu.Item>
-        <Menu.Item>
-          <Link to='/index/good'>精华</Link>
-        </Menu.Item>
-        <Menu.Item>
-          <Link to='/index/ask'>问答</Link>
-        </Menu.Item>
-        <Menu.Item>
-          <Link to='/index/share'>分享</Link>
-        </Menu.Item>
-        <Menu.Item>
-          <Link to='/index/job'>招聘</Link>
-        </Menu.Item>
-        <Menu.Item>
-          <Link to='/index/dev'>测试</Link>
-        </Menu.Item>
+        {tab.map((item)=>{
+          if(!item.isIndex){
+            return false;
+          }
+          return (<Menu.Item key={item.tab}>
+            <Link to={'/index/'+item.tab}>{item.txt}</Link>
+          </Menu.Item>)
+        })}
       </Menu>
     )
   }
 }
+
+export default withRouter((props)=>{
+  let {mode,id,location} = props
+  return <IndexMenu
+    mode = {mode}
+    id = {id}
+    location = {location}
+  />
+})

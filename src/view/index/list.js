@@ -8,27 +8,33 @@ class list extends Component {
   state = {
     page: 1
   }
-
+  isStart = true;
   componentDidMount () {
-    this.getData(this.props.tab);
+    this.getData(this.props.tab,this.state.page);
   }
 
   // 当组件更新时，收到的新的props
   shouldComponentUpdate (nextPorps, nextState) {
     console.log(nextPorps)
+    this.isStart = false
+    if(this.state.page !== nextState.page) {
+      this.getData(nextPorps.tab,nextState.page);
+      return false
+    }
     if (this.props.tab !== nextPorps.tab) {
-      this.getData(nextPorps.tab);
+      this.state.page = 1
+      this.getData(nextPorps.tab,1)
       return false
     }
     return true
   }
 
-  getData (tab) {
+  getData (tab,page) {
     this.props.dispatch((dispatch)=>{
       dispatch({
         type: 'LIST_UPDATA'
       })
-      axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${this.state.page}&limit=15`)
+      axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${page}&limit=8`)
         .then((res)=>{
           console.log(res.data)
           dispatch({
@@ -48,11 +54,22 @@ class list extends Component {
 
   render() {
     let {loading,data} = this.props
+    let pagination = {
+      current: this.state.page,
+      pageSize: 10,
+      total: 1000,
+      onChange:((current)=>{
+        this.setState({
+          page:current
+        });
+      })
+    }
     console.log(this.props)
     return (
       <List 
           loading={loading}
           dataSource={data}
+          pagination={this.isStart?false:pagination}
           renderItem={item=>(<List.Item
               actions={['回复'+item.reply_count,
                         '访问'+item.visit_count
